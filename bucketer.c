@@ -21,7 +21,7 @@ void testBucketingByNumberOfCycles() {
   if(i<400){
     lowCount++;
   }
-  else if(i>400 || i<919){
+  else if(i>400 && i<919){
     mediumCount++;
   }
   else if(i>=920){
