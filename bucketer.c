@@ -18,14 +18,14 @@ void testBucketingByNumberOfCycles() {
   printf("Counting batteries by usage cycles...\n");
   for(int i=0;i<numberOfBatteries;i++) {       
                                     //checking for count conditions
-  if(i<400){
-    lowCount++;
+  if(chargeCycleCounts[i]<400){
+    counts.lowCount++;
   }
-  else if(i>400 && i<919){
-    mediumCount++;
+  else if(chargeCycleCounts[i]>400 && chargeCycleCounts[i]<919){
+    counts.mediumCount++;
   }
-  else if(i>=920){
-    highCount++;
+  else if(chargeCycleCounts[i]>=920){
+    counts.highCount++;
   }
 }
   struct CountsByUsage counts = countBatteriesByUsage(chargeCycleCounts, numberOfBatteries);
