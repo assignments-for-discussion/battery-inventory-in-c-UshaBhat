@@ -2,9 +2,9 @@
 #include <assert.h>
 
 struct CountsByUsage {
-  int lowCount;
-  int mediumCount;
-  int highCount;
+  int lowCount=0;
+  int mediumCount=0;
+  int highCount=0;
 };
 
 struct CountsByUsage countBatteriesByUsage(const int* cycles, int nBatteries) {
@@ -16,7 +16,8 @@ void testBucketingByNumberOfCycles() {
   const int chargeCycleCounts[] = {100, 300, 500, 600, 900, 1000};
   const int numberOfBatteries = sizeof(chargeCycleCounts) / sizeof(chargeCycleCounts[0]);
   printf("Counting batteries by usage cycles...\n");
-  for(int i=0;i<numberOfBatteries;i++)        //checking for count conditions
+  for(int i=0;i<numberOfBatteries;i++) {       
+                                    //checking for count conditions
   if(i<400){
     lowCount++;
   }
@@ -26,6 +27,7 @@ void testBucketingByNumberOfCycles() {
   else if(i>=920){
     highCount++;
   }
+}
   struct CountsByUsage counts = countBatteriesByUsage(chargeCycleCounts, numberOfBatteries);
   assert(counts.lowCount == lowCount);
   assert(counts.mediumCount ==mediumCount);
